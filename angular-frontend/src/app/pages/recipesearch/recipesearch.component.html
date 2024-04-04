@@ -1,16 +1,18 @@
-<p class="text-white ml-10">recipesearch works!</p>
+<img src="/assets/image1.jpeg" class="size-full opacity-75" alt="">
 
-<input type="text" class="p-2 rounded-lg m-1" type="text" placeholder="Search.." name="" id="">
-<button class="text-white ml-10" (click)="searchRecipe()">Get Recipes</button>
+<p class="text-black ml-10">recipesearch works!</p>
+
+<input type="text" class="p-2 border-2 border-gray-400 rounded-lg m-1" type="text" placeholder="Search.." name="" id="">
+<button class="text-black ml-10" (click)="searchRecipe()">Get Recipes</button>
 
 <div class=" flex flex-wrap gap-3 w-10/12/12 justify-center">
     <hr>
     @for (recipe of recipes; track recipe) {
-    <article class="text-white">
+    <article class="text-black">
         <img class="w-96 h-82" src="{{ recipe.image }}" alt="recipe image"> <br>
         <h3 class="text-center  text-2xl text-green-500 w-64 h-20">{{ recipe.label }}</h3> <br>
         <hr>
-        <h4 class="text-2xl text-green-200">The ingredients</h4>
+        <h4 class="text-2xl text-black">The ingredients</h4>
         <ul>
             @for (ingredientLine of recipe.ingredientLines; track ingredientLine) {
                 <li class="text-left w-52">{{ ingredientLine }}</li>
