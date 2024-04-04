@@ -14,7 +14,7 @@ import { AsyncPipe, CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'authapp';
+  title = 'Recipe App';
 
   loginDetails: LoginDetails;
 
@@ -22,8 +22,8 @@ export class AppComponent {
 
   constructor(private auth: AuthService){
     this.loginDetails = {
-      email:"seb@seb.seb",
-      password:"sebsebseb"
+      email:"chali@gmail.com",
+      password:"hejsansvejsan"
     }
 
     this.loggedIn$ = this.auth.loggedIn$;

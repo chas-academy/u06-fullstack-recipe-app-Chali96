@@ -1,37 +1,44 @@
-<h1 class="text-white ml-10 mt-2 mb-4 text-3xl">Choose mealtype!</h1>
+<div class="flex flex-row justify-center bg-orange-100 rounded-full w-11/12 h-56 m-auto text-center">
+    <div class="m-14">
+        <h2 class="mb-5 text-4xl text-red-800">Choose a mealtype!</h2>
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="searchRecipe()">All Recipes</button>
 
-<button class="text-white ml-10 hover:text-green-500" (click)="searchRecipe()">All Recipes</button>
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="breakfastRecipe()">Breakfast</button>
 
-<button class="text-white ml-10 hover:text-green-500" (click)="searchRecipe()">Breakfast</button>
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="lunchRecipe()">Lunch</button>
 
-<button class="text-white ml-10 hover:text-green-500" (click)="searchRecipe()">Lunch</button>
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="dinnerRecipe()">Dinner</button>
 
-<button class="text-white ml-10 hover:text-green-500" (click)="searchRecipe()">Dinner</button>
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="dessertRecipe()">Dessert</button>
 
-<button class="text-white ml-10 hover:text-green-500" (click)="searchRecipe()">Dessert</button>
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="snackRecipe()">Snack</button>
+    </div>
 
-<button class="text-white ml-10 hover:text-green-500" (click)="searchRecipe()">Snack</button>
-
-
-
-
+</div>
 
 
-<div class=" flex flex-wrap gap-3 w-10/12/12 justify-center">
+
+<div class=" bg-white flex flex-wrap gap-3 w-10/12/12 justify-center mt-6">
     <hr>
     @for (recipe of recipes; track recipe) {
-    <article class="text-white">
+    <article class="text-black ">
         <img class="w-96 h-82" src="{{ recipe.image }}" alt="recipe image"> <br>
-        <h3 class="text-center  text-2xl text-green-500 w-64 h-20">{{ recipe.label }}</h3> <br>
+        <h3 class="text-left  text-3xl text-red-800  w-64 h-32">{{ recipe.label }}</h3> <br>
         <hr>
-        <h4 class="text-2xl text-green-200">The ingredients</h4>
+        <h4 class="text-2xl text-red-800 ">The ingredients</h4>
         <ul>
             @for (ingredientLine of recipe.ingredientLines; track ingredientLine) {
-                <li class="text-left w-52">{{ ingredientLine }}</li>
+            <li class="text-left w-52">{{ ingredientLine }}</li>
             }
         </ul>
     </article>
-} @empty {
+    } @empty {
     <p class="text-white">There are no recipes..</p>
-}
+    }
 </div>
