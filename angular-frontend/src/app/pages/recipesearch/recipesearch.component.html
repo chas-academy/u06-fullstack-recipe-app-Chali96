@@ -2,7 +2,7 @@
 
 <button (click)="searchRecipe()">Get Recipes</button>
 
-@for (recipe of Recipes; track recipe) {
+@for (recipe of recipes; track recipe) {
     <article>
         <h3>{{ recipe.label }}</h3>
         <img src="{{ recipe.image }}" alt="recipe image">
