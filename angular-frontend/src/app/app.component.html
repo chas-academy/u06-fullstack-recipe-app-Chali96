@@ -1,2 +1,38 @@
 <h1>Hello</h1>
+
+<p>{{ loggedIn$ | async }}</p>
+
+<button (click)="login()">Login</button>
+<button (click)="logout()">Logout</button>
+
+<nav>
+    <ul>
+        <li>
+            <a
+            routerLink="/search"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Search</a>
+        </li>
+
+        <li>
+            <a
+            routerLink="/recipe"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Recipe</a>
+        </li>
+
+        <li>
+            <a
+            routerLink="/profile"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Profile</a>
+        </li>
+    </ul>
+</nav>
+
+
+
 <router-outlet />
