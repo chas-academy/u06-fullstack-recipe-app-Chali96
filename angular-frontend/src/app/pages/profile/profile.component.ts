@@ -17,7 +17,8 @@ export class ProfileComponent {
     this.user = {
       id:-1,
       name:"",
-      email:""
+      email:"",
+      created_at: ""
     }
   }
 

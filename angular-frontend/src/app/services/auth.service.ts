@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { LoginDetails } from '../interfaces/login-details';
+import { Logindetails } from '../interfaces/logindetails';
 import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { User } from '../interfaces/user';
 
@@ -40,8 +40,8 @@ export class AuthService {
     this.loggedIn.next(loginState);
    }
 
-   loginUser(LoginDetails: LoginDetails) {
-    this.http.post<ResultData>(this.baseUrl+'login', LoginDetails, this.httpOptions).pipe(
+   loginUser(logindetails: Logindetails) {
+    this.http.post<ResultData>(this.baseUrl+'login', logindetails, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result => {
         console.log(result);
         this.updateLoginState(true);
