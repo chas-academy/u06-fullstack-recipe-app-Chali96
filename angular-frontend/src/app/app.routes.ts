@@ -4,11 +4,14 @@ import { RecipeComponent } from './pages/recipe/recipe.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { authGuard } from './guards/auth.guard';
 import { ContactComponent } from './pages/contact/contact.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 export const routes: Routes = [
-    {path: '', component: RecipesearchComponent},
+    {path: '', component: HomeComponent},
     {path: 'recipe', component: RecipeComponent},
     {path: 'contact', component: ContactComponent},
+    {path: 'search', component: RecipesearchComponent},
     {path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+    // {path: 'recipe:id', component: RecipeComponent}
 ];
