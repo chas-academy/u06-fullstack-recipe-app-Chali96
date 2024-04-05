@@ -4,11 +4,12 @@ import { filter, map } from 'rxjs';
 import { Recipe } from '../../interfaces/recipe';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { RecipeidformatterPipe } from '../../pipes/recipeidformatter.pipe';
 
 @Component({
   selector: 'app-recipesearch',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, RecipeidformatterPipe],
   templateUrl: './recipesearch.component.html',
   styleUrl: './recipesearch.component.css'
 })
