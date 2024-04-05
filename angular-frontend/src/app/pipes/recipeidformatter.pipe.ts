@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RecipeidformatterPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: string, ...args: string[]): string {
+    return value.replace("http://api.edamam.com/api/recipes/v2/","").split("?")[0];
   }
 
 }
