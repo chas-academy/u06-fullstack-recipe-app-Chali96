@@ -1,25 +1,45 @@
-<img src="/assets/image1.jpeg" class="size-full opacity-75" alt="">
+<img src="/assets/homeimg.jpeg" class="size-full" alt="">
 
-<p class="text-black ml-10">recipesearch works!</p>
+<div class="flex flex-row justify-center bg-orange-100 rounded-3xl h-56 size-11/12 m-auto text-center mt-5" >
+    <div class="m-14">
+        <h2 class="mb-5 text-4xl text-red-800">Choose a mealtype!</h2>
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="searchRecipe()">All Recipes</button>
 
-<input type="text" class="p-2 border-2 border-gray-400 rounded-lg m-1" type="text" placeholder="Search.." name="" id="">
-<button class="text-black ml-10" (click)="searchRecipe()">Get Recipes</button>
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="breakfastRecipe()">Breakfast</button>
 
-<div class=" flex flex-wrap gap-3 w-10/12/12 justify-center">
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="lunchRecipe()">Lunch</button>
+
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="dinnerRecipe()">Dinner</button>
+
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="dessertRecipe()">Dessert</button>
+
+        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+            (click)="snackRecipe()">Snack</button>
+    </div>
+
+</div>
+
+<div class=" bg-white flex flex-wrap gap-3 w-10/12/12 justify-center mt-6">
     <hr>
     @for (recipe of recipes; track recipe) {
-    <article class="text-black">
+    <article class="text-black ">
         <img class="w-96 h-82" src="{{ recipe.image }}" alt="recipe image"> <br>
-        <h3 class="text-center  text-2xl text-green-500 w-64 h-20">{{ recipe.label }}</h3> <br>
+  
+        <h3 class="text-left  text-3xl text-red-800  w-64 h-32">{{ recipe.label }}</h3> <br>
         <hr>
-        <h4 class="text-2xl text-black">The ingredients</h4>
+        <h4 class="text-2xl text-red-800 ">The ingredients</h4>
         <ul>
             @for (ingredientLine of recipe.ingredientLines; track ingredientLine) {
-                <li class="text-left w-52">{{ ingredientLine }}</li>
+            <li class="text-left w-52">{{ ingredientLine }}</li>
             }
         </ul>
     </article>
-} @empty {
+    } @empty {
     <p class="text-white">There are no recipes..</p>
-}
+    }
 </div>

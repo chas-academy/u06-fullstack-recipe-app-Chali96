@@ -30,7 +30,12 @@
     <hr>
     @for (recipe of recipes; track recipe) {
     <article class="text-black ">
+        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-green-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"    routerLink="/profile"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >
         <img class="w-96 h-82" src="{{ recipe.image }}" alt="recipe image"> <br>
+    </a>
         <h3 class="text-left  text-3xl text-red-800  w-64 h-32">{{ recipe.label }}</h3> <br>
         <hr>
         <h4 class="text-2xl text-red-800 ">The ingredients</h4>
