@@ -6,6 +6,7 @@ import { authGuard } from './guards/auth.guard';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 export const routes: Routes = [
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path: 'contact', component: ContactComponent},
     {path: 'search', component: RecipesearchComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'register', component: RegisterComponent},
     {path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
     // {path: 'recipe:id', component: RecipeComponent}
 ];
