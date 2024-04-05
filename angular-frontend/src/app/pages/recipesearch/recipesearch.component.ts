@@ -3,11 +3,12 @@ import { RecipeService } from '../../services/recipe.service';
 import { filter, map } from 'rxjs';
 import { Recipe } from '../../interfaces/recipe';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipesearch',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './recipesearch.component.html',
   styleUrl: './recipesearch.component.css'
 })

@@ -33,7 +33,9 @@
         <img src="{{recipe.image}}" alt="Recipe image">
         <h3>{{recipe.label}}</h3>
         <p>Cooking time: {{recipe.totalTime}} min</p>
-        <p>[route]</p>
+        <p>
+            <a [routerLink]="['/recipes', recipe.selfref]"></a>
+        </p>
     </article>
 } @empty { <p>No recipes found... Search something else!</p> }
 
