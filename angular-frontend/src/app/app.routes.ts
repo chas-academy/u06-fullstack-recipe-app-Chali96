@@ -7,7 +7,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 
 
 export const routes: Routes = [
-    {path: 'search', component: RecipesearchComponent},
+    {path: '', component: RecipesearchComponent},
     {path: 'recipe', component: RecipeComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
