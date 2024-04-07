@@ -25,7 +25,18 @@
 </div>
  -->
 
+ <p>{{id}}</p>
 
+ <!-- @for(recipe of recipe; track recipe){
+    <article>
+        <img src="{{recipe.image}}" alt="Recipe image">
+        <h3>{{recipe.label}}</h3>
+        <p>Cooking time: {{recipe.totalTime}} min</p>
+    </article>
+} @empty { <p>No recipes found... Search something else!</p> } -->
+
+
+<!-- 
 <div class=" bg-white flex flex-wrap gap-3 w-10/12/12 justify-center mt-6">
     <hr>
     @for (recipe of recipes; track recipe) {
@@ -48,4 +59,4 @@
     } @empty {
     <p class="text-white">There are no recipes..</p>
     }
-</div>
+</div> -->

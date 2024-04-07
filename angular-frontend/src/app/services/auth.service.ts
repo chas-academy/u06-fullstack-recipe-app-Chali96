@@ -4,6 +4,7 @@ import { Logindetails } from '../interfaces/logindetails';
 import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { User } from '../interfaces/user';
 
+
 interface ResultData {
   token: string
 }
@@ -12,6 +13,11 @@ interface RegisterDetails {
 
 }
 
+// interface loggedInUser {
+//   user: User,
+//   loginState: boolean
+// }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +25,7 @@ interface RegisterDetails {
 export class AuthService {
 
   private loggedIn = new BehaviorSubject<boolean>(false);
+
   loggedIn$ = this.loggedIn.asObservable();
 
   private baseUrl = 'http://127.0.0.1:8000/api/';
@@ -32,12 +39,14 @@ export class AuthService {
   constructor(private http:HttpClient) {
    }
 
-   getLoginStatus(){
-    return this.loggedIn.value;
-   }
+  
 
    private updateLoginState(loginState: boolean) {
     this.loggedIn.next(loginState);
+   }
+
+    getLoginStatus(){
+    return this.loggedIn.value;
    }
 
    loginUser(logindetails: Logindetails) {
@@ -49,13 +58,17 @@ export class AuthService {
       })
    }
 
-   logOut() {
+   logoutUser() {
     this.http.post<ResultData>(this.baseUrl+'logout', {}, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result => {
         console.log(result);
         this.updateLoginState(false);
         this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer");
       })
+   }
+
+   getCurrentUser(){
+
    }
 
    getUser2(): Observable<User[]> {

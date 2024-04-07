@@ -28,4 +28,10 @@ export class RecipeService {
     return this.http.get<any>(url, this.httpOptions);
   }
 
+  getRecipe(id: string){
+    let baseUrl = 'https://api.edamam.com/api/recipes/v2/';
+    let url = `${baseUrl}${id}?type=public&app_id=${this.app_id}&app_key=${this.app_key}`;
+    return this.http.get<any>(url, this.httpOptions);
+  }
+
 }
