@@ -1,6 +1,6 @@
 <img src="/assets/homeimg.jpeg" class="size-full" alt="">
 
-<div class="flex flex-row justify-center bg-orange-100 rounded-3xl h-56 size-11/12 m-auto text-center mt-5" >
+<!-- <div class="flex flex-row justify-center bg-orange-100 rounded-3xl h-56 size-11/12 m-auto text-center mt-5" >
     <div class="m-14">
         <h2 class="mb-5 text-4xl text-red-800">Choose a mealtype!</h2>
         <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
@@ -22,9 +22,24 @@
             (click)="snackRecipe()">Snack</button>
     </div>
 
-</div>
+</div> -->
 
-<div class=" bg-white flex flex-wrap gap-3 w-10/12/12 justify-center mt-6">
+<input type="text" [(ngModel)]="searchTerm">
+
+<button (click)="searchRecipe()" class="text-black bg-pink-900">Search</button>
+
+@for(recipe of recipes; track recipe){
+    <article>
+        <img src="{{recipe.image}}" alt="Recipe image">
+        <h3>{{recipe.label}}</h3>
+        <p>Cooking time: {{recipe.totalTime}} min</p>
+        <p>
+            <a [routerLink]="['/recipe', recipe.selfref | recipeidformatter]">Checkout recipe</a>
+        </p>
+    </article>
+} @empty { <p>No recipes found... Search something else!</p> }
+
+<!-- <div class=" bg-white flex flex-wrap gap-3 w-10/12/12 justify-center mt-6">
     <hr>
     @for (recipe of recipes; track recipe) {
     <article class="text-black ">
@@ -42,4 +57,4 @@
     } @empty {
     <p class="text-white">There are no recipes..</p>
     }
-</div>
+</div> -->

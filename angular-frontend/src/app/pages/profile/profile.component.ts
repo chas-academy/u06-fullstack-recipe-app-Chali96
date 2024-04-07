@@ -17,16 +17,17 @@ export class ProfileComponent {
     this.user = {
       id:-1,
       name:"",
-      email:""
+      email:"",
+      created_at: ""
     }
   }
 
-  getUser(){
-    this.auth.getUser2().subscribe(res => {
-      console.log(res[0]);
-      this.user = res[0];
-    })
-  }
+  // getUser(){
+  //   this.auth.getUser2().subscribe(res => {
+  //     console.log(res[0]);
+  //     this.user = res[0];
+  //   })
+  // }
 
 
 }
