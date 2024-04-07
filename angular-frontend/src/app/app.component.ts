@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { Loggedinuser } from './interfaces/loggedinuser';
+import { LoggedInUser } from './interfaces/loggedinuser';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'Recipe App';
 
-  loggedIn$: Observable<Loggedinuser>;
+  loggedIn$: Observable<LoggedInUser>;
 
   constructor(private auth: AuthService) {
     this.loggedIn$ = this.auth.loggedIn$;

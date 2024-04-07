@@ -11,7 +11,6 @@ export class RecipeService {
   private app_key = "49a1644c1b0b3ea76c42c0c837bc2a97";
   private app_id = "ac7f880c";
 
-
   private httpOptions = {
     headers: new HttpHeaders({
       'accept': 'application/json',

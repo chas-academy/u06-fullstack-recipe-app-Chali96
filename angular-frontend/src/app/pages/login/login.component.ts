@@ -14,7 +14,7 @@ export class LoginComponent {
 
   constructor(private auth: AuthService){
     this.loginDetails = {
-      email:"chali@gmail.com",
+      email:"chals@gmail.com",
       password:"hejsansvejsan"
     }
   }

@@ -22,12 +22,12 @@ export class ProfileComponent {
     }
   }
 
-  getUser(){
-    this.auth.getUser2().subscribe(res => {
-      console.log(res[0]);
-      this.user = res[0];
-    })
-  }
+  // getUser(){
+  //   this.auth.getUser2().subscribe(res => {
+  //     console.log(res[0]);
+  //     this.user = res[0];
+  //   })
+  // }
 
 
 }
