@@ -17,7 +17,7 @@ export class AuthService {
 
   loggedIn$ = this.loggedIn.asObservable();
 
-  private baseUrl = 'https://u06-recipe-app-chali96.onrender.com/';
+  private baseUrl = 'https://u06-recipe-app-chali96.onrender.com/api';
 
   private httpOptions = {
     headers: new HttpHeaders({
