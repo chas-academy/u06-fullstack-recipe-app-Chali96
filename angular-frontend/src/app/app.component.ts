@@ -15,24 +15,4 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'Recipe App';
-
-  loginDetails: Logindetails;
-
-  loggedIn$: Observable<boolean>;
-
-  constructor(private auth: AuthService){
-    this.loginDetails = {
-      email:"chali@gmail.com",
-      password:"hejsansvejsan"
-    }
-
-    this.loggedIn$ = this.auth.loggedIn$;
-  }
-
-  login(){
-    this.auth.loginUser(this.loginDetails);
-  }
-  logout(){
-    this.auth.logOut();
-  }
 }

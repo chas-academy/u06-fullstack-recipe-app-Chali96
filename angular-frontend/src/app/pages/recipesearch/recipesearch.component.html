@@ -34,7 +34,7 @@
         <h3>{{recipe.label}}</h3>
         <p>Cooking time: {{recipe.totalTime}} min</p>
         <p>
-            <a [routerLink]="['/recipes', recipe.selfref | recipeidformatter]"></a>
+            <a [routerLink]="['/recipe', recipe.selfref | recipeidformatter]">Checkout recipe</a>
         </p>
     </article>
 } @empty { <p>No recipes found... Search something else!</p> }
