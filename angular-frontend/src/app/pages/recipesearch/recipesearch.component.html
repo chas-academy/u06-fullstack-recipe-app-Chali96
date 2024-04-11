@@ -1,34 +1,58 @@
-<img src="/assets/homeimg.jpeg" class="size-full" alt="">
+<!-- <img src="/assets/homeimg.jpeg" class="size-full" alt=""> -->
 
-<!-- <div class="flex flex-row justify-center bg-orange-100 rounded-3xl h-56 size-11/12 m-auto text-center mt-5" >
-    <div class="m-14">
-        <h2 class="mb-5 text-4xl text-red-800">Choose a mealtype!</h2>
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="searchRecipe()">All Recipes</button>
-
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="breakfastRecipe()">Breakfast</button>
-
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="lunchRecipe()">Lunch</button>
-
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="dinnerRecipe()">Dinner</button>
-
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="dessertRecipe()">Dessert</button>
-
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="snackRecipe()">Snack</button>
+<div class="relative size-full mx-auto">
+    <img class="size-full rounded-md" src="/assets/homeimg.jpeg"  alt="Food plate">
+    <div class="absolute inset-0 bg-gray-700 opacity-35"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center mt-64">
+        <h2 class="text-white text-6xl font-bold text-center">Search through all recipes below!</h2>
+        <p class="text-white text-2xl">and enjoy your meal!</p>
     </div>
+</div>
 
+
+<label
+    class="mx-auto mt-10 relative bg-white min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300"
+    for="search-bar">
+    <input id="search-bar" placeholder="Search recipe..." required
+        class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white" [(ngModel)]="searchTerm">
+    <button (click)="searchRecipe()"
+        class="w-full md:w-auto px-6 py-3 bg-black border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all disabled:opacity-70">
+        
+        <div class="relative">
+
+            <!-- Loading animation change opacity to display -->
+            <div
+                class="flex items-center justify-center h-3 w-3 absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 transition-all">
+                <svg class="opacity-0 animate-spin w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                        stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="flex items-center transition-all opacity-1 valid:"><span
+                    class="text-sm font-semibold whitespace-nowrap truncate mx-auto">
+                    Search
+                </span>
+            </div>
+
+        </div>
+        
+    </button>
+</label>
+
+
+
+<!-- <div class="max-w-md mx-auto">
+    <input type="text" id="default-search" class="w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search recipe..." required  [(ngModel)]="searchTerm">
+
+<button (click)="searchRecipe()" class="ml-36 text-white hover:bg-blue-800 bg-blue-700 rounded-lg font-medium text-sm px-4 py-2">Search</button> 
 </div> -->
 
-<input type="text" [(ngModel)]="searchTerm">
-
-<button (click)="searchRecipe()" class="text-black bg-pink-900">Search</button>
-
-@for(recipe of recipes; track recipe){
+<!-- @for(recipe of recipes; track recipe){
     <article>
         <img src="{{recipe.image}}" alt="Recipe image">
         <h3>{{recipe.label}}</h3>
@@ -37,9 +61,9 @@
             <a [routerLink]="['/recipe', recipe.selfref | recipeidformatter]">Checkout recipe</a>
         </p>
     </article>
-} @empty { <p>No recipes found... Search something else!</p> }
+} @empty { <p>No recipes found... Search something else!</p> } -->
 
-<!-- <div class=" bg-white flex flex-wrap gap-3 w-10/12/12 justify-center mt-6">
+<div class=" bg-white flex flex-wrap gap-3 w-10/12/12 justify-center mt-20">
     <hr>
     @for (recipe of recipes; track recipe) {
     <article class="text-black ">
@@ -57,4 +81,4 @@
     } @empty {
     <p class="text-white">There are no recipes..</p>
     }
-</div> -->
+</div>
