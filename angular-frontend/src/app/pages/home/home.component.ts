@@ -12,31 +12,36 @@ import { RecipeidformatterPipe } from '../../pipes/recipeidformatter.pipe';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   recipes?: any;
 
   constructor (private recipeService: RecipeService) {}
-  
-  searchRecipe() {
-    this.recipeService.getRecipes('chicken').subscribe((res) => {
-      console.log(res);
-      let recipeArray: any[];
-      recipeArray = res.hits;
-      console.log(recipeArray);
 
-      let recipes = recipeArray.map(item => {
-          return {
-            self: item._links.self.href,
-            label: item.recipe.label,
-            image: item.recipe.image,
-            totalTime: item.recipe.totalTime,
-            ingredientLines: item.recipe.ingredientLines
-          }
-      });
-      console.table(recipes);
-      this.recipes = recipes;
+ngOnInit() {
+
+  this.getAllRecipes();
+}
+
+getAllRecipes() {
+  this.recipeService.getRecipes('all').subscribe((res) => {
+    console.log(res);
+    let recipeArray: any[];
+    recipeArray = res.hits;
+    console.log(recipeArray);
+
+    let recipes = recipeArray.map(item => {
+        return {
+          self: item._links.self.href,
+          label: item.recipe.label,
+          image: item.recipe.image,
+          totalTime: item.recipe.totalTime,
+          ingredientLines: item.recipe.ingredientLines
+        }
     });
-  }
+    console.table(recipes);
+    this.recipes = recipes;
+  });
+}
 
   breakfastRecipe() {
     this.recipeService.getRecipes('breakfast').subscribe((res) => {
@@ -229,7 +234,6 @@ export class HomeComponent {
       this.recipes = recipes;
     });
   }
-  
 
 }
 
