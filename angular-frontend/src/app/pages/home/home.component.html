@@ -1,60 +1,70 @@
-<img src="/assets/image1.jpeg" class="size-full" alt="">
+<div class="flex flex-col justify-center items-center">
+    <img src="/assets/image1.jpeg" class="w-full m-auto md:w-full lg:w-full xl:w-full " alt="">
 
-<div class="flex flex-row justify-center bg-orange-100 rounded-3xl h-56 size-11/12 m-auto text-center mt-5">
-    <div class="m-14 w-2/3">
-        <h2 class="mb-2 text-4xl text-red-800">Choose a mealtype!</h2>
+    <div
+        class="mt-1 flex flex-col justify-center items-center bg-orange-100 md:h-fit h-1/2 m-auto w-full md:w-full lg:w-full xl:w-full text-center">
+        <div class="w-1/3 md:w-full">
+            <h2 class="mb-5 mt-2 text-2xl md:text-4xl text-center w-52 md:w-f m-auto text-red-800">Choose a mealtype!
+            </h2>
 
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="breakfastRecipe()">Breakfast</button>
+            <button
+                class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 mb-2 hover:text-red-300"
+                (click)="breakfastRecipe()">Breakfast</button>
 
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="lunchRecipe()">Lunch</button>
+            <button
+                class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 mb-2 hover:text-red-300"
+                (click)="lunchRecipe()">Lunch</button>
 
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="dinnerRecipe()">Dinner</button>
+            <button
+                class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 mb-2 hover:text-red-300"
+                (click)="dinnerRecipe()">Dinner</button>
 
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="dessertRecipe()">Dessert</button>
+            <button
+                class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 mb-2 hover:text-red-300"
+                (click)="dessertRecipe()">Dessert</button>
 
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-            (click)="snackRecipe()">Snack</button>
+            <button
+                class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 mb-2 hover:text-red-300"
+                (click)="snackRecipe()">Snack</button>
 
 
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-        (click)="vegetarianRecipe()">Vegetarian</button>
+            <button
+                class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 mb-2 hover:text-red-300"
+                (click)="vegetarianRecipe()">Vegetarian</button>
 
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-        (click)="veganRecipe()">Vegan</button>
+            <button
+                class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 mb-2 hover:text-red-300"
+                (click)="veganRecipe()">Vegan</button>
 
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-        (click)="dairyRecipe()">Dairy</button>
+            <button
+                class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 mb-2 hover:text-red-300"
+                (click)="dairyRecipe()">Dairy</button>
 
-        <button class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
-        (click)="glutenRecipe()">Gluten free</button>
+            <button
+                class=" font-bold py-2 px-4 rounded-full border-2 border-white text-red-800 ml-10 hover:text-red-300"
+                (click)="glutenRecipe()">Gluten free</button>
+        </div>
+
+        <button
+            class="my-8 font-bold w-1/3 rounded-full border-2 border-red-800 text-red-800 ml-10 hover:text-red-300 text-2xl"
+            (click)="getAllRecipes()">All Recipes!</button>
     </div>
 
-</div>
-
-<button class="mb-2 mt-8 font-bold py-2 px-4 rounded-full border-2 border-red-800 text-red-800 ml-10 hover:text-red-300 text-4xl"
-    (click)="getAllRecipes()">All Recipes!</button>
-
-
-<div class=" bg-white flex flex-wrap gap-3 w-10/12/12 justify-center mt-16">
-    <hr>
-    @for (recipe of recipes; track recipe) {
-    <article class="text-black ">
-        <img class="w-96 h-82" src="{{ recipe.image }}" alt="recipe image"> <br>
-  
-        <h3 class="text-left  text-3xl text-red-800  w-64 h-32">{{ recipe.label }}</h3> <br>
+    <div class=" bg-orange-50 flex flex-wrap gap-3 w-full md:w-full justify-center mt-1">
         <hr>
-        <h4 class="text-2xl text-red-800 ">The ingredients</h4>
-        <ul>
-            @for (ingredientLine of recipe.ingredientLines; track ingredientLine) {
-            <li class="text-left w-52">{{ ingredientLine }}</li>
-            }
-        </ul>
-    </article>
-    } @empty {
-    <p class="text-white">There are no recipes..</p>
-    }
+        @for (recipe of recipes; track recipe) {
+        <article>
+            <img class="w-96 h-82" src="{{ recipe.image }}" alt="recipe image"> <br>
+            <h3 class="text-left text-xl text-red-800  w-90 h-fit">{{ recipe.label }}</h3>
+            <p>
+                <a class="text-lg hover:text-red-900"
+                    [routerLink]="['/recipe', recipe.selfref | recipeidformatter]">Checkout recipe</a>
+            </p>
+            <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
+        </article>
+        } @empty {
+        <p class="text-white">There are no recipes..</p>
+        }
+    </div>
+
 </div>
