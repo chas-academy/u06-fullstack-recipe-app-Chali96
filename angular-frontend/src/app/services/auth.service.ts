@@ -8,6 +8,8 @@ import { Logindetails } from '../interfaces/logindetails';
 import { BehaviorSubject, catchError, throwError } from 'rxjs';
 import { User } from '../interfaces/user';
 import { LoggedInUser } from '../interfaces/loggedinuser';
+import { Registerdetails } from '../interfaces/registerdetails';
+import { Router } from '@angular/router';
 
 interface ResultData {
   token: string,
@@ -33,7 +35,7 @@ export class AuthService {
     }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   private updateLoginState(loginState: LoggedInUser) {
     this.loggedIn.next(loginState);
@@ -57,7 +59,31 @@ export class AuthService {
           'Authorization',
           'Bearer' + result.token
         );
+        this.router.navigate([
+          "/"
+        ])
       });
+  }
+
+  registerUser(registerdetails: Registerdetails){
+    this.http
+    .post<any>(this.baseUrl + 'register', registerdetails, this.httpOptions)
+      .pipe(catchError(this.handleError))
+      .subscribe((result) => {
+        console.log(result);
+        this.updateLoginState({
+          user: result.user,
+          loginState: true,
+        });
+
+        this.httpOptions.headers = this.httpOptions.headers.set(
+          'Authorization',
+          'Bearer' + result.token
+        );
+        this.router.navigate([
+          "/"
+        ])
+      })
   }
 
   logoutUser() {

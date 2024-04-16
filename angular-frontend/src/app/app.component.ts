@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { LoggedInUser } from './interfaces/loggedinuser';
 import { AuthService } from './services/auth.service';
+import { Logindetails } from './interfaces/logindetails';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,12 @@ export class AppComponent {
 
   loggedIn$: Observable<LoggedInUser>;
 
+
   constructor(private auth: AuthService) {
     this.loggedIn$ = this.auth.loggedIn$;
+  }
+
+  logoutUser(){
+    this.auth.logoutUser();
   }
 }
