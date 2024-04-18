@@ -57,7 +57,7 @@ export class AuthService {
 
         this.httpOptions.headers = this.httpOptions.headers.set(
           'Authorization',
-          'Bearer' + result.token
+          'Bearer ' + result.token
         );
         this.router.navigate([
           "/"
@@ -78,7 +78,7 @@ export class AuthService {
 
         this.httpOptions.headers = this.httpOptions.headers.set(
           'Authorization',
-          'Bearer' + result.token
+          'Bearer ' + result.token
         );
         this.router.navigate([
           "/"
@@ -100,6 +100,9 @@ export class AuthService {
           'Authorization',
           'Bearer'
         );
+        this.router.navigate([
+          "/"
+        ])
       });
   }
 

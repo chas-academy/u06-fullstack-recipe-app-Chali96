@@ -53,12 +53,12 @@
     <div class=" bg-orange-50 flex flex-wrap gap-3 w-full md:w-full justify-center mt-1">
         <hr>
         @for (recipe of recipes; track recipe) {
-        <article>
+        <article class="w-96">
             <img class="w-96 h-82" src="{{ recipe.image }}" alt="recipe image"> <br>
             <h3 class="text-left text-xl text-red-800  w-90 h-fit">{{ recipe.label }}</h3>
             <p>
                 <a class="text-lg hover:text-red-900"
-                    [routerLink]="['/recipe', recipe.selfref | recipeidformatter]">Checkout recipe</a>
+                    [routerLink]="['/recipe', recipe.selfref | recipeidformatter]">Go to recipe</a>
             </p>
             <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
         </article>

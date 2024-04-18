@@ -8,7 +8,7 @@
     <label class="md:hidden relative z-40 cursor-pointer px-3 py-6" for="mobile-menu">
       <input class="peer hidden" type="checkbox" id="mobile-menu" />
       <div
-        class="right-2 relative z-50 block h-[1px] w-7 bg-black bg-transparent content-[''] before:absolute before:top-[-0.35rem] before:z-50 before:block before:h-full before:w-full before:bg-white before:transition-all before:duration-200 before:ease-out before:content-[''] after:absolute after:right-0 after:bottom-[-0.35rem] after:block after:h-full after:w-full after:bg-white after:transition-all after:duration-200 after:ease-out after:content-[''] peer-checked:bg-transparent before:peer-checked:top-0 before:peer-checked:w-full before:peer-checked:rotate-45 before:peer-checked:transform after:peer-checked:bottom-0 after:peer-checked:w-full after:peer-checked:-rotate-45 after:peer-checked:transform">
+        class="right-2 fixed  z-50 block h-[1px] w-7 bg-white bg-transparent content-[''] before:absolute before:top-[-0.35rem] before:z-50 before:block before:h-full before:w-full before:bg-white before:transition-all before:duration-200 before:ease-out before:content-[''] after:absolute after:right-0 after:bottom-[-0.35rem] after:block after:h-full after:w-full after:bg-white after:transition-all after:duration-200 after:ease-out after:content-[''] peer-checked:bg-transparent before:peer-checked:top-0 before:peer-checked:w-full before:peer-checked:rotate-45 before:peer-checked:transform after:peer-checked:bottom-0 after:peer-checked:w-full after:peer-checked:-rotate-45 after:peer-checked:transform">
       </div>
       <div class="fixed inset-0 z-40 hidden h-full w-full bg-black/50 backdrop-blur-sm peer-checked:block">
         &nbsp;
@@ -28,7 +28,6 @@
                 routerLink="/search" routerLinkActive="active" ariaCurrentWhenActive="page">Recipe Search</a>
             </li>
 
-
             @if((loggedIn$ | async)?.loginState ){
             <li class="text-white flex flex-col gap-6">
               <div class="flex flex-row gap-1">
@@ -42,21 +41,24 @@
               <a routerLink="" routerLinkActive="active" aria-current="page" class="text-orange-800"
                 (click)="logoutUser()">Log out</a>
             </li>}
-            @else {<li> <a href="#"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-green-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>, <li>
-              <a href="#"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-green-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+            @else {
+              <div class="flex flex-col gap-4 ml-3 mt-2">
+              <li> 
+                <a href="#"
+                class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-green-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li> 
+                <li>
+                <a href="#"
+                class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-green-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
-            </li>}
+              </li>
+              </div>
+             }
 
           </menu>
         </div>
       </div>
     </label>
-
-
-
 
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul
@@ -85,7 +87,9 @@
           <a routerLink="" routerLinkActive="active" aria-current="page" class="text-orange-800"
             (click)="logoutUser()">Log out</a>
         </li>
-        } @else {<li> <a href="#"
+        } @else {
+          
+          <li> <a href="#"
             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-green-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
             routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>,
         <li>
